@@ -1,6 +1,5 @@
 using Serilog;
 using Serilog.Exceptions;
-using Serilog.Formatting.Json;
 using WebApi;
 using WebApi.Extensions;
 using WebApi.Middlewares;
@@ -11,16 +10,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddOption<AppSettings>("AppSettings");
 
+var serviceProvider = builder.Services.BuildServiceProvider();
+var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+
 var serilogLogger = new LoggerConfiguration()
     .Enrich.WithProperty("Oid", Guid.NewGuid().ToString())
     .Enrich.With(new OperationIdEnricher())
+    .Enrich.FromLogContext()
     .Enrich.WithExceptionDetails()
-    .WriteTo.Console()
-    .WriteTo.File(new JsonFormatter(), 
-        path: "Logs/.log",
-        rollingInterval: RollingInterval.Day,
-        rollOnFileSizeLimit: true,
-        fileSizeLimitBytes: 1024 * 1024 * 100) // 100MB
+    .ReadFrom.Configuration(configuration)
     .CreateLogger();
 
 builder.Services.AddLogging(logging =>
