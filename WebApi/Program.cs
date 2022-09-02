@@ -23,6 +23,7 @@ var serilogLogger = new LoggerConfiguration()
 
 builder.Services.AddLogging(logging =>
 {
+    logging.ClearProviders();
     logging.AddSerilog(serilogLogger, true);
 });
 
