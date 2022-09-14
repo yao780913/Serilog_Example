@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddOption<AppSettings>("AppSettings");
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 var serviceProvider = builder.Services.BuildServiceProvider();
 var configuration = serviceProvider.GetRequiredService<IConfiguration>();
@@ -72,6 +73,9 @@ app.MapGet("/api/weatherforecast", (ILoggerFactory loggerFactory) =>
         return forecast;
     })
     .WithName("GetWeatherForecast");
+
+app.MapGet("api/Customer", (ICustomerService service) => service.Get())
+    .WithName("GetCustomers");
 
 app.Run();
 
