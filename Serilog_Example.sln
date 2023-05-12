@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "WpfApp1\WpfApp1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{B0617A91-C71F-474B-AF86-7949CC2AB89C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTableStorage", "AzureTableStorage\AzureTableStorage.csproj", "{9F1E0FE0-FD27-4741-928B-A9E9B83B9CB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B0617A91-C71F-474B-AF86-7949CC2AB89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0617A91-C71F-474B-AF86-7949CC2AB89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0617A91-C71F-474B-AF86-7949CC2AB89C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F1E0FE0-FD27-4741-928B-A9E9B83B9CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F1E0FE0-FD27-4741-928B-A9E9B83B9CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F1E0FE0-FD27-4741-928B-A9E9B83B9CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F1E0FE0-FD27-4741-928B-A9E9B83B9CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
